@@ -1,10 +1,20 @@
 import Layout from "../components/Layout/Layout";
-import axios from "axios";
+import SearchInput from '../components/SearchInput/SearchInput';
+import styles from "../../styles/Home.module.css";
+//import axios from "axios";
 
 export default function Home({ countries }) {
   console.log(countries);
 
-  return <Layout>main</Layout>;
+  return (
+    <Layout>
+      <div className={styles.counts}>
+        Encontrado {countries.length} países
+      </div>
+
+      <SearchInput placeholder="Escolha o país"/>
+    </Layout>
+  )
 }
 
 export const getStaticProps = async () => {
