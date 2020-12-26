@@ -35,8 +35,7 @@ function components({ children, title = "World - Ranks"}) {
           />
           <rect y="4" width="7.33333" height="4.4" rx="2" fill="#21B6B7" />
         </svg>
-      </header>
-      <nav>
+        <nav>
         <Link href="/">
           <a>Home</a>
         </Link>
@@ -47,6 +46,7 @@ function components({ children, title = "World - Ranks"}) {
           <a>Contact</a>
         </Link>
       </nav>
+      </header>
 
       <main className={styles.main}>{children}</main>
 

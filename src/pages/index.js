@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import SearchInput from '../components/SearchInput/SearchInput';
+import CountriesTable from '../components/CountriesTable/CountriesTable';
 import styles from "../../styles/Home.module.css";
 //import axios from "axios";
 
@@ -13,6 +14,7 @@ export default function Home({ countries }) {
       </div>
 
       <SearchInput placeholder="Escolha o país"/>
+      <CountriesTable countries={countries}/>    
     </Layout>
   )
 }
