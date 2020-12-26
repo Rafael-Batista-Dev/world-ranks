@@ -7,8 +7,8 @@ export default function Home({ countries }) {
   return <Layout>main</Layout>;
 }
 
-export const getServerSideProps = async () => {
-  const res = await axios.get("https://restcountries.eu/rest/v2/all");
+export const getStaticProps = async () => {
+  const res = await fetch("https://restcountries.eu/rest/v2/all");
   const countries = await res.json();
 
   return {
