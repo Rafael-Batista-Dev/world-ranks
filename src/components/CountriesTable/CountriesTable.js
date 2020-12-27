@@ -1,8 +1,9 @@
+import { useState } from "react";
+import Link from "next/link";
 import {
   KeyboardArrowDownRounded,
   KeyboardArrowUpRounded,
 } from "@material-ui/icons";
-import { useState } from "react";
 import styles from "./CountriesTable.module.css";
 
 const orderBy = (countries, value, direction) => {
@@ -40,7 +41,7 @@ const SortArrow = ({ direction }) => {
 function CountriesTable({ countries }) {
   const [direction, setDirection] = useState();
   const [value, setValue] = useState();
-  
+
   const orderedCountries = orderBy(countries, value, direction);
 
   const switchDirection = () => {
@@ -79,10 +80,16 @@ function CountriesTable({ countries }) {
       </div>
 
       {orderedCountries.map((country) => (
-        <div className={styles.row}>
-          <div className={styles.heading_name}>{country.name}</div>
-          <div className={styles.heading_population}>{country.population}</div>
-        </div>
+        <Link href={"/country/${country.alpha3Code}"} key={country.alpha3Code}>
+          <a>
+            <div className={styles.row}>
+              <div className={styles.heading_name}>{country.name}</div>
+              <div className={styles.heading_population}>
+                {country.population}
+              </div>
+            </div>
+          </a>
+        </Link>
       ))}
     </>
   );
