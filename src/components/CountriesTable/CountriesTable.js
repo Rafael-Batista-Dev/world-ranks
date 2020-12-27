@@ -80,15 +80,19 @@ function CountriesTable({ countries }) {
       </div>
 
       {orderedCountries.map((country) => (
-        <Link href={"/country/${country.alpha3Code}"} key={country.alpha3Code}>
-          <a>
-            <div className={styles.row}>
-              <div className={styles.heading_name}>{country.name}</div>
-              <div className={styles.heading_population}>
-                {country.population}
-              </div>
+        <Link href={`/country/${country.alpha3Code}`} key={country.name}>
+          <div className={styles.row}>
+            <div className={styles.flag}>
+              <img src={country.flag} alt={country.name} />
             </div>
-          </a>
+            <div className={styles.name}>{country.name}</div>
+
+            <div className={styles.population}>{country.population}</div>
+
+            <div className={styles.area}>{country.area || 0}</div>
+
+            <div className={styles.gini}>{country.gini || 0} %</div>
+          </div>
         </Link>
       ))}
     </>
